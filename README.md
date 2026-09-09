@@ -7,8 +7,6 @@ Class : PBP KKI
 MAMAH HINA!!! 😭😭😭
 
 ### Assignment 1
-1. I did not/have not used the semantic elements yet, because i think using div still looked fine.
-2. I did not encounter any layout issues yet, at least from resizing the browser.
-3. I think the limitation is that the web still has a very limited access (need to run locally).
-
-I did not use any generative AI assistant during the making of assignment 1, although i still received small helps from my friends.
+1. Some semantic elements were used to divide the page into several parts, which improved accessibility and code maintainability without relying on generic <div> elements.
+2. I faced space constraints where the side-by-side grid columns and two-column info boxes would become squished on narrower screens. I prioritized keeping the primary identity and visual focus, such as name and photo, at the top, stacking elements vertically, shrinking the avatar width, and converting horizontal flex groups into vertical stacks to fit single-column mobile viewports.
+3. To update some informations, we have to do it manually via code editing, making it tedious. I would find a way to actually make it able to update those datas automatically.

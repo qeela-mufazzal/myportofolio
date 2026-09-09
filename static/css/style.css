@@ -70,7 +70,8 @@ h1, .brand {
     grid-template-columns: 1.3fr 1fr;
     grid-template-areas:
         "identity photo"
-        "details  photo";
+        "details  photo"
+        "skills   skills";
     gap: 1.5rem 3rem;
 }
 
@@ -183,7 +184,8 @@ h1, .brand {
         grid-template-areas:
             "identity"
             "photo"
-            "details";
+            "details"
+            "skills";
     }
 
     .hero-photo {
@@ -193,4 +195,44 @@ h1, .brand {
     .social-links {
         justify-content: flex-start;
     }
+
+    .hero-skills {
+        flex-direction: column;
+    }
+}
+
+.hero-skills {
+    grid-area: skills;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.skill-info {
+    flex: 1;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.skill-info-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.skill-info-list {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    color: var(--ink);
+}
+
+.skill-info-list li {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
 }
