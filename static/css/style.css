@@ -290,3 +290,28 @@ h1, .brand {
     font-size: 0.85rem;
     font-weight: 600;
 }
+
+.skill-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+}
+
+.skill-title {
+    color: #ffffff;
+    margin: 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.skill-level {
+    font-weight: 600;
+    color: #60a5fa;
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+}
+
+.skill-description {
+    color: var(--text-muted);
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience - {{ name }}</title>
+    <title>Skills - {{ name }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -22,31 +22,28 @@
     </header>
 
     <main>
-        <section class="experience-section" id="experience">
+        <section class="experience-section" id="skills">
             <div class="container">
-                <p class="section-kicker">My journey so far</p>
-                <h1>Experience</h1>
+                <p class="section-kicker">My Tech Stack</p>
+                <h1>Skills</h1>
 
                 <div class="experience-grid">
-                    {% for experience in experience_list %}
-                        <article class="experience-card">
+                    {% for skill in skills_list %}
+                        <article class="skill-card">
                             <span class="experience-category">
-                                {{ experience.get_category_display }}
+                                {{ skill.category }}
                             </span>
-                            <h2>{{ experience.title }}</h2>
-                            <p class="experience-description">
-                                {{ experience.description }}
+                            <h2 class="skill-title">{{ skill.name }}</h2>
+                            <p class="skill-level">
+                                Level: {{ skill.get_proficiency_display }}
                             </p>
-
-                            {% if experience.is_ongoing %}
-                                <p class="experience-status">Ongoing</p>
-                            {% else %}
-                                <p class="experience-status">Completed</p>
-                            {% endif %}
+                            <p class="skill-description">
+                                {{ skill.description }}
+                            </p>
                         </article>
                     {% empty %}
                         <p class="empty-state">
-                            No experience has been added yet.
+                            No skills have been added yet.
                         </p>
                     {% endfor %}
                 </div>

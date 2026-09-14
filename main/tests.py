@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from main.models import Experience
+from main.models import Experience, Skill
 
 
 class MainTest(TestCase):
@@ -56,3 +56,29 @@ class MainTest(TestCase):
         self.assertFalse(self.experience.is_ongoing)
         self.assertContains(response, "Completed")
         self.assertNotContains(response, "Ongoing")
+
+    def test_skills_url_and_template(self):
+        response = self.client.get(reverse("main:show_skills"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "skills.html")
+
+    def test_skills_content_when_not_empty(self):
+        skill = Skill.objects.create(
+            name="Python",
+            category="Programming Language",
+            proficiency="advanced",
+            description="Used for Django web development."
+        )
+        response = self.client.get(reverse("main:show_skills"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, skill.name)
+        self.assertContains(response, skill.description)
+        self.assertContains(response, "Advanced")
+
+    def test_empty_skills_page(self):
+        response = self.client.get(reverse("main:show_skills"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "No skills have been added yet.")
