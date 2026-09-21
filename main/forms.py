@@ -1,7 +1,7 @@
-from django.forms import ModelForm, TextInput, Textarea
+from django.forms import ModelForm, TextInput, Textarea, Select
 from main.models import Experience
 
-class ProjectForm(ModelForm):
+class ExperienceForm(ModelForm):
     class Meta:
         model = Experience
         fields = [
@@ -13,25 +13,25 @@ class ProjectForm(ModelForm):
         labels = {
             "title": "Experience Name",
             "description": "Description",
-            "category": "Experience Type",
+            "category": "Category",
         }
 
         widgets = {
             "title": TextInput(
                 attrs={
-                    "placeholder": "Portfolio Website",
+                    "placeholder": "e.g. Teaching Assistant for PBP",
                     "maxlength": 255,
                 }
             ),
             "description": Textarea(
                 attrs={
-                    "placeholder": "Tell us about your project",
+                    "placeholder": "Describe your responsibilities or achievements...",
                     "rows": 3,
                 }
             ),
-            "category": TextInput(
+            "category": Select(
                 attrs={
-                    "placeholder": "Django, Python, HTML, CSS",
+                    "class": "form-select",
                 }
             ),
         }

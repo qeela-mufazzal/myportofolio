@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
 from main.models import Experience, Skill
-from main.forms import ProjectForm
+from main.forms import ExperienceForm
 
 
 def show_main(request):
@@ -34,16 +34,16 @@ def show_skills(request):
     
     return render(request, 'skills.html', context)
 
-def create_project(request):
-    form = ProjectForm(request.POST or None)
+def create_experience(request):
+    form = ExperienceForm(request.POST or None)
 
     if request.method == "POST" and form.is_valid():
         form.save()
-        messages.success(request, "Proyek baru berhasil ditambahkan!")
-        return redirect("main:show_projects")
+        messages.success(request, "Successfully added new experience!")
+        return redirect("main:show_experience")
 
     context = {
-        "name": "Burhan",
+        "name": "Qeela",
         "form": form,
     }
-    return render(request, "projects_form.html", context)
+    return render(request, "experience_form.html", context)
